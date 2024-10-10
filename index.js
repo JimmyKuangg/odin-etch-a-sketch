@@ -24,9 +24,9 @@ function promptUser() {
   let validAns = false;
 
   while (!validAns) {
-    userAns = prompt("How many squares would you like per row?");
-
-    if (userAns > 100 || userAns < 1 || Number.isInteger(userAns)) {
+    userAns = +(prompt("How many squares would you like per row?"));
+    
+    if (userAns > 100 || userAns < 1 || isNaN(userAns)) {
       alert("Invalid number (Please enter a number between 1 and 100)");
     } else {
       validAns = true;
