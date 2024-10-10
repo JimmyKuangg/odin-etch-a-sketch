@@ -19,6 +19,52 @@ body {
   display: flex;
 }
 
-.fill-in {
+.darken-1 {
   background-color: black;
+  opacity: 10%;
+}
+
+.darken-2 {
+  background-color: black;
+  opacity: 20%;
+}
+
+.darken-3 {
+  background-color: black;
+  opacity: 30%;
+}
+
+.darken-4 {
+  background-color: black;
+  opacity: 40%;
+}
+
+.darken-5 {
+  background-color: black;
+  opacity: 50%;
+}
+
+.darken-6 {
+  background-color: black;
+  opacity: 60%;
+}
+
+.darken-7 {
+  background-color: black;
+  opacity: 70%;
+}
+
+.darken-8 {
+  background-color: black;
+  opacity: 80%;
+}
+
+.darken-9 {
+  background-color: black;
+  opacity: 90%;
+}
+
+.darken-10 {
+  background-color: black;
+  opacity: 100%;
 }

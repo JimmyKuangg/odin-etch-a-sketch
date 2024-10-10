@@ -5,18 +5,22 @@ function generateGrid(numPerRow = 16) {
   for (let i = 0; i < numPerRow; i++) {
     const newRow = document.createElement("div");
     newRow.classList.add("grid-row");
+
     for (let i = 0; i < numPerRow; i++) {
       const newSqr = document.createElement("div");
       const sqrDimensions = 720 / numPerRow;
       newSqr.setAttribute("style", `width: ${sqrDimensions}px; height: ${sqrDimensions}px;`);
-      newSqr.addEventListener("mouseover", (e) => {
-        e.target.classList.add("fill-in");
-      })
-  
+      newSqr.addEventListener("mouseover", fillIn);
       newRow.appendChild(newSqr);
     }
+
     grid.appendChild(newRow);
   }
+}
+
+function fillIn(e) {
+  const numTimesDarkened = e.target.classList.length;
+  e.target.classList.add(`darken-${numTimesDarkened + 1}`)
 }
 
 function promptUser() {
