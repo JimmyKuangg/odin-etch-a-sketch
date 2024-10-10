@@ -1,15 +1,53 @@
 const grid = document.querySelector(".grid");
+const reset = document.querySelector(".reset-btn");
 
-for (let i = 0; i < 16; i++) {
-  const newRow = document.createElement("div");
-  for (let i = 0; i < 16; i++) {
-    const newSqr = document.createElement("div");
-    newSqr.setAttribute("style", "width: 45px; height: 45px;");
-    newSqr.addEventListener("mouseover", (e) => {
-      e.target.classList.add("fill-in");
-    })
-
-    newRow.appendChild(newSqr);
+function generateGrid(numPerRow = 16) {
+  for (let i = 0; i < numPerRow; i++) {
+    const newRow = document.createElement("div");
+    newRow.classList.add("grid-row");
+    for (let i = 0; i < numPerRow; i++) {
+      const newSqr = document.createElement("div");
+      const sqrDimensions = 720 / numPerRow;
+      newSqr.setAttribute("style", `width: ${sqrDimensions}px; height: ${sqrDimensions}px;`);
+      newSqr.addEventListener("mouseover", (e) => {
+        e.target.classList.add("fill-in");
+      })
+  
+      newRow.appendChild(newSqr);
+    }
+    grid.appendChild(newRow);
   }
-  grid.appendChild(newRow);
 }
+
+function promptUser() {
+  let userAns;
+  let validAns = false;
+
+  while (!validAns) {
+    userAns = prompt("How many squares would you like per row?");
+
+    if (userAns > 100 || userAns < 1 || Number.isInteger(userAns)) {
+      alert("Invalid number (Please enter a number between 1 and 100)");
+    } else {
+      validAns = true;
+    }
+  }
+  
+  generateGrid(userAns);
+}
+
+function removeRows() {
+  const rows = document.querySelectorAll(".grid-row");
+  for (row of rows) {
+    grid.removeChild(row);
+  }
+}
+
+function onResetClick() {
+  removeRows();
+  promptUser();
+}
+
+
+reset.addEventListener("click", onResetClick);
+generateGrid();
