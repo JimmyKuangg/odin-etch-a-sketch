@@ -1,0 +1,10 @@
+.grid {
+  width: 720px;
+  height: 720px;
+  border: solid 2px gray;
+  display: flex;
+}
+
+.fill-in {
+  background-color: black;
+}
